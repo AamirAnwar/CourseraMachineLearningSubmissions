@@ -29,7 +29,13 @@ centroids = zeros(K, n);
 
 
 
-
+for i = 1:K 
+    filteredClusters = idx == i;
+    for j=1:n
+        centroids(i,j) = sum(X(:,j) .* filteredClusters) / sum(filteredClusters);
+    end
+end
+    
 
 
 
